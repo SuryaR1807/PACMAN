@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Assignment</title>
+    <style>
+    </style>
+</head>
+<body>
+    <button onclick="create()">Start</button>
+    <script>
+        var velocity=100;
+        var position=0;
+        var pac1;
+        let pacMan=['PacMan1.png','PacMan2.png'];
+        let backman=['PacMan3.png','PacMan4.png']
+        function create(){
+            pac1=document.createElement('img');
+            pac1.src=pacMan[0];
+            pac1.style.position="absolute";
+            pac1.style.left="30px";
+            pac1.style.top="50px";
+            pac1.style.width="60px"; 
+            pac1.style.height="60px"; 
+            document.body.appendChild(pac1);
+            setInterval(move, 1000)
+        }
+        let forward=true;
+        var front=1;
+        function move(){
+            if(position<600 && forward==true ){
+                pac1.src=pacMan[front%2]
+                position+=velocity;
+                pac1.style.left=position+'px';
+                front=front+1;
+                if(position >=600){
+                    forward=false;
+                }
+            }
+            if(position>0 && forward==false ){
+                pac1.src=backman[front%2]
+                position-=velocity;
+                pac1.style.left=position+'px';
+                front=front+1;
+                console.log(back)
+                if(position <=0){
+                    forward=true;
+                    console.log(forward)
+                }
+            }
+        }
+        </script>
+</body>
+</html>
